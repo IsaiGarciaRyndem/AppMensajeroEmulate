@@ -1,0 +1,7 @@
+{
+  "name": "AppMensajero",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
