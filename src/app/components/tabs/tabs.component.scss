@@ -1,0 +1,73 @@
+.menu_pendientes_inactivo{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../../../assets/img/imgs2/menu_pendientes_inactivo.svg');
+}
+.ion-ios-mobicon-delivery::before{
+  font-family: "application-icon" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "../../../assets/imgs2/menu_pendientes_inactivo.svg";
+}
+
+.tabbar a[aria-selected=true] {
+  color: #008894  !important;;
+
+  ion-icon {
+    &[class*=custom-] {
+      margin: 0 5px 0 0;
+      vertical-align: middle;
+      $sz: 30px;
+      width: $sz;
+      height: $sz;
+    } // custom icons
+    &[class*=pendiente] {
+      background: url('../../../assets/img/imgs2/menu_pendientes_select.svg') no-repeat 100% 100%;
+      background-size: contain;
+    }
+    &[class*=en_cierre] {
+      background: url('../../../assets/img/imgs2/menu_cierre_select.svg') no-repeat 100% 100%;
+      background-size: contain;
+    }
+    &[class*=cerrados] {
+      background: url('../../../assets/img/imgs2/menu_cerrados_select.svg') no-repeat 100% 100%;
+      background-size: contain;
+    }
+    &[class*=colecatar] {
+      background: url('../../../assets/img/imgs2/icono_colectar_verde.svg') no-repeat 100% 100%;
+      background-size: contain;
+    }
+  }
+}
+
+ion-icon {
+  &[class*=custom-] {
+    margin: 0 5px 0 0;
+    vertical-align: middle;
+    $sz: 30px;
+    width: $sz;
+    height: $sz;
+  } // custom icons
+  &[class*=pendiente] {
+    background: url('../../../assets/img/imgs2/menu_pendientes_inactivo.svg') no-repeat 100% 100%;
+    background-size: contain;
+  }
+  &[class*=en_cierre] {
+    background: url('../../../assets/img/imgs2/menu_cierre_inactivo.svg') no-repeat 100% 100%;
+    background-size: contain;
+  }
+  &[class*=cerrados] {
+    background: url('../../../assets/img/imgs2/menu_cerrados_inactivo.svg') no-repeat 100% 100%;
+    background-size: contain;
+  }
+  &[class*=colecatar] {
+    background: url('../../../assets/img/imgs2/icono_colectar_gris.svg') no-repeat 100% 100%;
+    background-size: contain;
+  }
+}
