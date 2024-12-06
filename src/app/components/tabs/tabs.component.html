@@ -1,6 +1,16 @@
 <ion-tabs>
-  <ion-tab-bar slot="bottom" color="withe">
-    <ion-tab-button tab="home">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Listen now</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
+
+  <ion-tab-bar slot="bottom" [mode]="'footer'">
+    <ion-tab-button tab="home" [routerLink]="'/colectar'">
       <ion-icon src="assets/img/imgs2/icono_colectar_gris.svg"></ion-icon>
       Colectar
     </ion-tab-button>
