@@ -1,39 +1,27 @@
-<ion-tabs>
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Listen now</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ selectedTabOption.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-content [fullscreen]="true">
-    <ion-router-outlet></ion-router-outlet>
-  </ion-content>
+<ion-content [fullscreen]="true" class="content">
+  <app-colectar-elementos
+    *ngIf="selectedTabOption.id === 1"
+  ></app-colectar-elementos>
+  <app-pendientes *ngIf="selectedTabOption.id === 2"></app-pendientes>
+  <app-en-cierre *ngIf="selectedTabOption.id === 3"></app-en-cierre>
+  <app-cerrados *ngIf="selectedTabOption.id === 4"></app-cerrados>
+</ion-content>
 
-  <ion-tab-bar slot="bottom" [mode]="'footer'">
-    <ion-tab-button tab="home" [routerLink]="'/colectar'">
-      <ion-icon src="assets/img/imgs2/icono_colectar_gris.svg"></ion-icon>
-      Colectar
-    </ion-tab-button>
-    <ion-tab-button tab="radio">
-      <ion-icon src="assets/img/imgs2/menu_pendientes_inactivo.svg"></ion-icon>
-      Pendientes
-    </ion-tab-button>
-    <ion-tab-button tab="library">
-      <ion-icon src="assets/img/imgs2/menu_cierre_inactivo.svg"></ion-icon>
-      En Cierre
-    </ion-tab-button>
-    <ion-tab-button tab="search">
-      <ion-icon src="assets/img/imgs2/menu_cerrados_inactivo.svg"></ion-icon>
-      Cerrados
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
-
-<!--
-<ion-tabs color="white" selectedIndex="0">
-<ion-tab tabIcon="custom-colecatar" tabTitle="Colectar" [root]="tab"></ion-tab>
-<ion-tab tabIcon="custom-pendiente" tabTitle="Pendientes" [root]="tab1"></ion-tab>
-<ion-tab  tabIcon="custom-en_cierre" tabTitle="En Cierre" [root]="tab2"></ion-tab>
-<ion-tab  tabIcon="custom-cerrados" tabTitle="Cerrados" [root]="tab3"></ion-tab>
-</ion-tabs>
--->
+<ion-tab-bar slot="bottom" [mode]="'footer'">
+  <ion-tab-button
+    *ngFor="let tab of tabOptions; trackBy: handleTrackBy"
+    tab="{{ tab.id }}"
+    (click)="handleSelectedTab(tab.id)"
+  >
+    <ion-icon
+      [src]="tab.selected ? tab.selectedIcon : tab.defaultIcon"
+    ></ion-icon>
+    {{ tab.name }}
+  </ion-tab-button>
+</ion-tab-bar>
