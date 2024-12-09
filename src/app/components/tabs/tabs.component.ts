@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ComunService } from '../../../providers/comun/comun';
+import { Router } from '@angular/router';
 
 interface ITabOption {
   id: number;
@@ -49,7 +50,14 @@ export class TabsComponent {
   isGDL: boolean = false;
   index: number = 0;
   usuario = this._login.getUsuario();
-  constructor(private _login: ComunService) {}
+  constructor(
+    private _login: ComunService,
+    private router: Router,
+  ) {
+    if (!this.usuario) {
+      this.router.navigate(['login']);
+    }
+  }
 
   handleTrackBy(index: number, item: ITabOption) {
     return item.id;
