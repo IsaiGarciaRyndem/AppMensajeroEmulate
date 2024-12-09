@@ -14,7 +14,7 @@ interface ITabOption {
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss'],
 })
-export class TabsComponent implements OnInit {
+export class TabsComponent {
   tabOptions: Array<ITabOption> = [
     {
       id: 1,
@@ -50,12 +50,6 @@ export class TabsComponent implements OnInit {
   index: number = 0;
   usuario = this._login.getUsuario();
   constructor(private _login: ComunService) {}
-
-  ngOnInit() {
-    /*    if(this.usuario['nivel'] === 46){
-      this.isGDL = true
-    }*/
-  }
 
   handleTrackBy(index: number, item: ITabOption) {
     return item.id;
