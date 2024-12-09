@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ selectedTabOption.name }}</ion-title>
+    <ion-title class="title">{{ selectedTabOption.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="content">
+<ion-content class="ion-padding" [fullscreen]="true">
   <app-colectar-elementos
     *ngIf="selectedTabOption.id === 1"
   ></app-colectar-elementos>
@@ -15,6 +15,7 @@
 
 <ion-tab-bar slot="bottom" [mode]="'footer'">
   <ion-tab-button
+    class="tab-button"
     *ngFor="let tab of tabOptions; trackBy: handleTrackBy"
     tab="{{ tab.id }}"
     (click)="handleSelectedTab(tab.id)"
